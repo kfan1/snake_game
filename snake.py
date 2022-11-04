@@ -5,13 +5,6 @@ from turtle import *
 class Snake:
     def __init__(self):
         self.snake = []
-        self.food = Turtle()
-        self.food.color('green')
-        self.food.shape('square')
-        self.food.penup()
-        randx = random.randint(-13, 13) * 20
-        randy = random.randint(-13, 13) * 20
-        self.food.goto(x=randx, y=randy)
 
     def create_snake(self, length):
         for _ in range(length):
@@ -60,20 +53,6 @@ class Snake:
             return False
         else:
             return True
-
-    def eating(self):
-        xs = round(self.snake[0].xcor())
-        ys = round(self.snake[0].ycor())
-        xf = self.food.xcor()
-        yf = self.food.ycor()
-        if (xs, ys) == (xf, yf):
-            self.add_snake()
-            randx = random.randint(-13, 13) * 20
-            randy = random.randint(-13, 13) * 20
-            self.food.goto(x=randx, y=randy)
-            return 1
-        else:
-            return 0
 
     def hitting_yourself(self):
         snake_cordinates = []
